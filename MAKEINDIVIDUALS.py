@@ -13,6 +13,14 @@ for record in SeqIO.parse(filepath, "fasta"):
     refgenome += record.seq
     
 print(type(refgenome))
+
+#==============================================================================
+# only need this once: write reference genome as a single text string to a file
+#==============================================================================
+#f = open("ref_genome_c_elegans.txt", "w+")
+#f.write(str(refgenome))
+#f.close()
+
 #==============================================================================
 # read in the vcf file and create a dictionary of format:
 # (key, value) -> (position, [G, C, C, G...] list of length # individuals, 40 in this case)
