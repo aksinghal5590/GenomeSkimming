@@ -1,0 +1,7 @@
+reads/
+kmers/
+reads_fa/
+resources/
+alleles/
+indivGenotypes/
+.ipynb_checkpoints/

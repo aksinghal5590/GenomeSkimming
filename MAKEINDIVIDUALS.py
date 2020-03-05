@@ -8,7 +8,7 @@ from Bio import SeqIO
 
 refgenome = ""
 
-filepath = os.getcwd() + "/Caenorhabditis_elegans.WBcel235.dna.toplevel.fa"
+filepath = os.getcwd() + "/chr1.fa"
 for record in SeqIO.parse(filepath, "fasta"):
     refgenome += record.seq
     
@@ -38,7 +38,7 @@ def combineRows(ref, oldValues, newValues):
 #print(combineRows("A", ["A", "A", "G"], ["A", "C", "A"]))
 
 vcfDict = {}
-f = open(os.getcwd() + "/ri_master.vcf") # "/smaller.txt") 
+f = open(os.getcwd() + "/I.vcf") # "/smaller.txt") 
 for line in f:
     parsed = line.strip().replace('|', '\t').split('\t')
     if len(parsed) == 29+20 and parsed[0] != "#CHROM":
