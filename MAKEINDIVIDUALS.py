@@ -2,13 +2,13 @@
 #==============================================================================
 # read in the reference genome as a single string
 #==============================================================================
-import os, glob
+import os, glob, sys
 import Bio
 from Bio import SeqIO
 
 refgenome = ""
 
-filepath = os.getcwd() + "/chr1.fa"
+filepath = os.getcwd() + '/' + sys.argv[1]
 for record in SeqIO.parse(filepath, "fasta"):
     refgenome += record.seq
     
@@ -38,7 +38,7 @@ def combineRows(ref, oldValues, newValues):
 #print(combineRows("A", ["A", "A", "G"], ["A", "C", "A"]))
 
 vcfDict = {}
-f = open(os.getcwd() + "/I.vcf") # "/smaller.txt") 
+f = open(os.getcwd() + '/' + sys.argv[2]) # "/smaller.txt") 
 for line in f:
     parsed = line.strip().replace('|', '\t').split('\t')
     if len(parsed) == 29+20 and parsed[0] != "#CHROM":
